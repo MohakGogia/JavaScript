@@ -15,6 +15,7 @@ let currentPencilSize = 1;
 let currentEraserSize = 1;
 let currentPencilColor = "black";
 
+// har color input p event lga diya jo color set krdega wohi pencil ka
 for(let i=0 ; i<pencilColors.length ; i++){
     pencilColors[i].addEventListener("click" , function(e){
         let selectedPencilColor = e.target.className;
@@ -37,7 +38,7 @@ eraserSizeInput.addEventListener("change" , function(){
 
 pencil.addEventListener("click" , function(){
     if(activeTool == "pencil"){
-        // pencil options open ya close honge
+        // pencil options open ya close honge 2nd click p
         if(pencilOptions.classList.contains("hide")){
             pencilOptions.classList.remove("hide");
         }
@@ -48,14 +49,14 @@ pencil.addEventListener("click" , function(){
     else{
         activeTool = "pencil";
         ctx.strokeStyle = currentPencilColor;
-        ctx.lineWidth = currentPencilSize;
+        ctx.lineWidth = currentPencilSize; //current size lele
         eraserOptions.classList.add("hide");
     }
 })
 
 eraser.addEventListener("click" , function(){
     if(activeTool == "eraser"){
-        // eraser options open ya close honge
+        // eraser options open ya close honge 2nd click p
         if(eraserOptions.classList.contains("hide")){
             eraserOptions.classList.remove("hide");
         }
@@ -65,8 +66,8 @@ eraser.addEventListener("click" , function(){
     }
     else{
         activeTool = "eraser";
-        ctx.strokeStyle = "white";
-        ctx.lineWidth = currentEraserSize;
-        pencilOptions.classList.add("hide");
+        ctx.strokeStyle = "white"; // white line draw hogi to erase the content
+        ctx.lineWidth = currentEraserSize; //current size lele
+        pencilOptions.classList.add("hide"); // pencil k options hta diye tb
     }
 }) 

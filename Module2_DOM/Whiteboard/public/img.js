@@ -14,7 +14,7 @@ photoInput.addEventListener("change" , function(e){
     let img = document.createElement("img");
     img.src = imageUrl;
     img.classList.add("image-upload");
-    appendSticky(img);
+    appendSticky(img); //img file k object pass hoga isme aur sticky k content m photo ajaegi
 })
 
 

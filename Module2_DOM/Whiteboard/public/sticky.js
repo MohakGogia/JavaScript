@@ -12,7 +12,7 @@ function appendSticky(elem) {
     </div>
     <div class="sticky-content">
     </div>`;
-    sticky.querySelector(".sticky-content").append(elem);
+    sticky.querySelector(".sticky-content").append(elem); //img obj append hojaega agar element aya h to
   } else {
     sticky.innerHTML = `<div class="sticky-header">
              <div class="minimize"></div>
@@ -36,6 +36,7 @@ function appendSticky(elem) {
     initialY = y;
   });
 
+  // for sticky drag
   stickyHeader.addEventListener("mousemove", function (e) {
     if (isStickyHold) {
       let x = e.clientX;
@@ -49,7 +50,7 @@ function appendSticky(elem) {
       // set top and left of sticky
       // getBoundingClient => top left get kr skte hai but set nhi kr skte
       let { top, left } = sticky.getBoundingClientRect();
-
+      //khud s top aur left me  displacement add krdenge
       sticky.style.top = top + dy + "px";
       sticky.style.left = left + dx + "px";
 

@@ -13,7 +13,7 @@ function undoLine(){
     // 2. clear canvas
     ctx.clearRect(0,0 , canvas.width , canvas.height);
 
-    // 3. redraw Lines
+    // 3. redraw Lines call hoga jo empty canvas p wo sab lines draw krdega except popped line
     redrawLine();
 }
 
@@ -40,11 +40,11 @@ function redrawLine(){
     }
 }
 
+// redo s undo kri gyi line ko wapas draw kra jaega and then db m push hojaegi wo line bhi
 function redoLine(){
     if(redoDB.length >=1){
         let line = redoDB.pop();
-        for(let j=0 ; j<line.length ; j++){
-
+        for(let j=0 ; j<line.length ; j++){ 
             let pointObject = line[j];
             if(pointObject.type=="md"){
                 ctx.strokeStyle = pointObject.color;
@@ -56,7 +56,7 @@ function redoLine(){
                 ctx.lineTo(pointObject.x , pointObject.y);
                 ctx.stroke();
             }
-
+            
         }
         db.push(line);
     }
