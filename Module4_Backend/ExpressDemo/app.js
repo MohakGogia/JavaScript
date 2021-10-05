@@ -50,5 +50,5 @@ app.get("/user/:id", function (req, res) {
 
 //localhost:8080 url pe server started
 app.listen(8080, function () {
-    console.log("Listening on Port 8080");
+    console.log("Listening at Port 8080");
 })
